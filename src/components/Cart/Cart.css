@@ -1,0 +1,10 @@
+.cart-container{
+    padding-left: 25px;
+    padding-top: 25px;
+    position: sticky;
+    top: 0;
+}
+
+.cart-container h2{
+    text-align: center;
+}
