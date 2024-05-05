@@ -36,8 +36,12 @@ const deleteShoppingCart = () => {
 };
 
 const gettingStoreCart = () =>{
+    let shoppingCart = {}
     const storeCart = localStorage.getItem("shopping-cart")
-    return storeCart
+    if(storeCart){
+        shoppingCart = JSON.parse(storeCart)
+    }
+    return shoppingCart 
 }
 
 export { 

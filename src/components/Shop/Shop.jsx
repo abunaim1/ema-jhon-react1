@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 /* eslint-disable no-unused-vars */
 // import React from 'react';
 import { useState } from 'react';
@@ -20,8 +21,16 @@ const Shop = () => {
 
     useEffect(()=>{
         const storedCart = gettingStoreCart()
-        console.log(storedCart);
-    },[])
+        const savedCart = []
+        for(const id in storedCart){
+            if(products.length > 0){
+                const addedProduct = products.find(currentProduct =>currentProduct.id===id)
+                addedProduct.quantity = storedCart[id]
+                savedCart.push(addedProduct)
+            }
+        }
+        setCart(savedCart)
+    },[products])
 
     const handleAddToCart = (product) =>{
         const newCart = [...cart, product]
